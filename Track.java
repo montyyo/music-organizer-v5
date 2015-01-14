@@ -21,6 +21,7 @@ public class Track
     {
         playCount = 0;
     }
+    
     /**
      * Constructor for objects of class Track.
      * @param artist The track's artist.
@@ -91,5 +92,23 @@ public class Track
         this.title = title;
         this.filename = filename;
     }
+    
+    /**
+     * metodo de reseteo
+     */
+    public void resetPlays()
+    {
+        playCount = 0;
+    }
+    
+    /**
+     * metodo de suma de reproduccion
+     */
+    public void plusPlay()
+    {
+        playCount = playCount +1;
+        
+    }
+    
     
 }
