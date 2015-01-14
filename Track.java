@@ -13,7 +13,14 @@ public class Track
     private String title;
     // Where the track is stored.
     private String filename;
+     // Añade un atributo a la clase Track llamado playCount. este atributo lleva la cuenta
+     // de las veces que se ha reproducido una canción. Asegúrate de que se fija a 0 en el constructor de la clase Track.
+    private int playCount;
     
+    public Track()
+    {
+        playCount = 0;
+    }
     /**
      * Constructor for objects of class Track.
      * @param artist The track's artist.

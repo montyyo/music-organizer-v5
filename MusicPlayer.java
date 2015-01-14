@@ -14,6 +14,8 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
  * @author David J. Barnes and Michael Kölling.
  * @version 2011.07.31
  */
+
+
 public class MusicPlayer
 {
     // The current player. It might be null.
@@ -25,6 +27,7 @@ public class MusicPlayer
     public MusicPlayer()
     {
         player = null;
+        
     }
     
     /**
@@ -44,6 +47,7 @@ public class MusicPlayer
         finally {
             killPlayer();
         }
+       
     }
     
     /**
@@ -74,6 +78,7 @@ public class MusicPlayer
         catch (Exception ex) {
             reportProblem(filename);
         }
+        
     }
     
     public void stop()
@@ -99,6 +104,7 @@ public class MusicPlayer
             reportProblem(filename);
             killPlayer();
         }
+    
     }
 
     /**
@@ -147,4 +153,5 @@ public class MusicPlayer
         System.out.println("There was a problem playing: " + filename);
     }
 
+  
 }
