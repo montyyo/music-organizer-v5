@@ -16,11 +16,9 @@ public class Track
      // Añade un atributo a la clase Track llamado playCount. este atributo lleva la cuenta
      // de las veces que se ha reproducido una canción. Asegúrate de que se fija a 0 en el constructor de la clase Track.
     private int playCount;
-    
-    public Track()
-    {
-        playCount = 0;
-    }
+   
+    // nuevo atributo productora
+    private String productora;
     
     /**
      * Constructor for objects of class Track.
@@ -28,9 +26,11 @@ public class Track
      * @param title The track's title.
      * @param filename The track file. 
      */
-    public Track(String artist, String title, String filename)
+    public Track(String artist, String title, String filename, String productora)
     {
         setDetails(artist, title, filename);
+         playCount = 0;
+        this.productora = productora;
     }
     
     /**
@@ -77,7 +77,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")";
+        return artist + ": " + title + "  (file: " + filename + ") " + productora ;
     }
     
     /**
@@ -91,6 +91,7 @@ public class Track
         this.artist = artist;
         this.title = title;
         this.filename = filename;
+            
     }
     
     /**
@@ -110,5 +111,22 @@ public class Track
         
     }
     
+    public int getPlay()
+    {
+        return playCount;
+    }
+    
+    /**
+     * getter paraextraer productora
+     */
+    public String getProductora()
+    {
+        return productora;
+    }   
+    
+    public void setProductora(String productora)
+    {
+        this.productora= productora;
+    }
     
 }
