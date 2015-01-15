@@ -55,14 +55,18 @@ public class MusicOrganizer
      */
     public void playTrack(int index)
     {
-        if(indexValid(index)) {
-            Track track = tracks.get(index);
-            player.startPlaying(track.getFilename());
-            playMusic = true;
-            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
-            track.plusPlay();
+        if(playMusic){
+            System.out.println("se esta reproduciendo una cancion,pare y reinicie");
         }
-        
+        else{
+                if(indexValid(index)) {
+                    Track track = tracks.get(index);
+                    player.startPlaying(track.getFilename());
+                    playMusic = true;
+                    System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+                    track.plusPlay();
+                 }
+         }
     }
     
     /**
@@ -127,14 +131,18 @@ public class MusicOrganizer
      */
     public void playFirst()
     {
-        if(tracks.size() > 0) {
-            player.startPlaying(tracks.get(0).getFilename());
-            playMusic = true;
-            Track track = tracks.get(0);            
-           track.plusPlay();
+        if(playMusic){
+            System.out.println("se esta reproduciendo una cancion, pare y reinicie");
         }
+            else{
+                if(tracks.size() > 0) {
+                player.startPlaying(tracks.get(0).getFilename());
+                playMusic = true;
+                Track track = tracks.get(0);            
+                track.plusPlay();
+            }
         
-       
+       }
     }
     
     /**
