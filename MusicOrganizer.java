@@ -194,8 +194,11 @@ public class MusicOrganizer
     }
     
     /**
-     * metodo para fijar años en cada track
+     * metodo para fijar productora en cada track
      */
-    
+    public void setProductora(int index, String productora)
+    {
+        tracks.get(index).setProductora(productora);
+    }
     
 }
