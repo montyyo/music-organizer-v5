@@ -17,6 +17,7 @@ public class MusicOrganizer
     private TrackReader reader;
    // atributo para indicar reproducciones en curso
    private boolean playMusic;
+   
     /**
      * Create a MusicOrganizer
      */
@@ -26,6 +27,7 @@ public class MusicOrganizer
         player = new MusicPlayer();
         reader = new TrackReader();
         readLibrary("audio");
+        readLibrary("miMusica"); // le una carpeta , las canciones en ella 
         playMusic = false;
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
