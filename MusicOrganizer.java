@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.Collections;
 /**
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
@@ -107,6 +108,31 @@ public class MusicOrganizer
                
        }
    
+       /**
+        * Implementa un método llamado playShuffle 
+        * que permita reproducir los primeros segundos de cada canción en orden aleatorio
+        * y que cumpla los siguientes requisitos:
+        * - Cada canción debe reproducirse una única vez y deben reproducirse todas.
+        * - Los contadores de reproducción deben actualizarse correctamente.
+        * - Debe mostrar por pantalla los detalles de la canción que está sonando en este momento.
+        * - La forma de solucionarlo debe basarse en el uso del método shuffle de los ArrayList 
+        * que deberás investigar en Internet.
+        */
+    public void playShuffle()
+    {
+      Collections.shuffle(tracks); //desordena la lista de canciones 
+       int index =0; // contador a cero
+       while(index < tracks.size())//ejecucion mientras que contador menor que num elementos
+       {
+           Track music = tracks.get(index);//Se guarda  la cancion  con el indice
+           System.out.println(music.getDetails());//Muestra los detalles del elemento
+           player.playSample(music.getFilename());//Reproduce el elemento guardado
+           music.plusPlay();;//Aumenta en uno el plusplay 
+           index++;//Se aumenta el indice
+      }
+       
+       
+    }
     
     /**
      * Add a track file to the collection.
