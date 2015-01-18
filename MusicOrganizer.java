@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 /**
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
@@ -17,7 +18,8 @@ public class MusicOrganizer
     private TrackReader reader;
    // atributo para indicar reproducciones en curso
    private boolean playMusic;
-   
+   //random
+   private int alea;
     /**
      * Create a MusicOrganizer
      */
@@ -31,6 +33,7 @@ public class MusicOrganizer
         playMusic = false;
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
+        
     }
     
    /**
@@ -73,6 +76,7 @@ public class MusicOrganizer
      */
      public void removeByTitle(String title)
     {
+       
        Iterator<Track> it = tracks.iterator();
        while(it.hasNext()){
            
@@ -86,6 +90,24 @@ public class MusicOrganizer
         }
     }
    
+    /**
+     * Implementa un método llamado playRandom que reproduzca una 
+     * de las canciones del organizador al azar. Investiga la clase 
+     * Random del paquete java.util y su método nextInt para cumplir tu cometido.
+     */
+    public void playRandom()
+    {
+       // alea= (int) (Math.random()*tracks.size() + 0); //genera num aleatorio
+       //http://docs.oracle.com/javase/7/docs/api/java/util/Random.html#nextInt%28int%29
+       Random  rnd = new Random();
+       int index = 0;
+       index = (int)  rnd.nextInt(tracks.size());
+       
+       playTrack(index);
+               
+       }
+   
+    
     /**
      * Add a track file to the collection.
      * @param filename The file name of the track to be added.
