@@ -135,6 +135,35 @@ public class MusicOrganizer
     }
     
     /**
+     *  Implementa un método llamado playShuffle2 que tenga la misma funcionalidad
+     *  que el anterior pero que esté basado en hacer una copia del ArrayList contenido en el atributo tracks.
+     *  Una vez hecha la copia, podemos seleccionar aleatoriamente una canción de la copia,
+     *  reproducirla y eliminarla de la lista.
+     *  Para hacer una copia de un ArrayList se deben utilizar las siguientes dos líneas:
+     *  ArrayList<ClaseDeLosElementosDeLaColeccion> copia = new ArrayList<>(); 
+     *  copia = (ArrayList)original.clone();
+     */
+    public void playShuffle2()
+    {
+        ArrayList<Track> copia = new ArrayList<Track>();
+        copia = (ArrayList)tracks.clone();
+        
+        Collections.shuffle(tracks); //desordena la lista de canciones 
+       int index =0; // contador a cero
+       while(index < copia.size())//ejecucion mientras que contador menor que num elementos
+       {
+           Track music = copia.get(index);//Se guarda  la cancion  con el indice
+           System.out.println(music.getDetails());//Muestra los detalles del elemento
+           player.playSample(music.getFilename());//Reproduce el elemento guardado
+           music.plusPlay();;//Aumenta en uno el plusplay 
+           index++;//Se aumenta el indice
+           copia.remove(music);//borra la cancion de la copia
+      }
+       
+    
+    }
+    
+    /**
      * Add a track file to the collection.
      * @param filename The file name of the track to be added.
      */
